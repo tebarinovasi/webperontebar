@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PERONTEBAR - Fiksi</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0fdf4;
+        }
+        .card-item {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.5s forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Animasi delay untuk setiap kartu */
+        .card-item:nth-child(1) { animation-delay: 0.1s; }
+        .card-item:nth-child(2) { animation-delay: 0.2s; }
+        .card-item:nth-child(3) { animation-delay: 0.3s; }
+        .card-item:nth-child(4) { animation-delay: 0.4s; }
+        .card-item:nth-child(5) { animation-delay: 0.5s; }
+        .card-item:nth-child(6) { animation-delay: 0.6s; }
+        .card-item:nth-child(7) { animation-delay: 0.7s; }
+        
+        /* Animasi untuk modal popup */
+        @keyframes modal-pop {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .animate-modal-pop {
+            animation: modal-pop 0.3s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Konten Utama -->
+    <main class="container mx-auto px-6 py-12 md:py-16">
+        <section>
+            <!-- Judul Halaman -->
+            <div class="text-center mb-8">
+                <h1 class="text-4xl md:text-5xl font-bold text-green-800">Koleksi Fiksi</h1>
+                <p class="text-lg text-green-600 mt-2">Temukan cerita-cerita fiksi yang memikat hati.</p>
+            </div>
+
+            <!-- Tombol Pemilihan Genre -->
+            <div class="text-center mb-12">
+                <button id="genreButton" class="bg-green-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition-colors duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                    Pilih Genre Lain
+                </button>
+            </div>
+
+            <!-- Grid untuk Kartu Buku -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 lg:gap-10">
+
+                <!-- Kartu Buku 1 -->
+                <div class="card-item bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 ease-in-out hover:shadow-xl flex flex-col">
+                    <img alt="Negeri Di Ujung Tanduk" class="w-full h-64 object-contain bg-gray-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyMAodqcKvnxv0wX2ipVn_bfSkvP-3fZ7d5Q6gUBV_2p2sdZk5h2K5AQc&s=10"/>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Negeri Di Ujung Tanduk</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">Kisah Negeri Di Ujung Tanduk ini merupakan lanjutan dari perjalanan Thomas dan teman-temannya dalam memperjuangkan kebenaran.</p>
+                        <a href="https://archive.org/embed/negeri-di-ujung-tanduk-tere-liye" target="_blank" rel="noopener noreferrer" class="w-full mt-auto text-center block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300">
+                            Baca Sekarang
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Kartu Buku 2 -->
+                <div class="card-item bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 ease-in-out hover:shadow-xl flex flex-col">
+                    <img alt="Catatan Juang" class="w-full h-64 object-contain bg-gray-100" src="https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/items/207959051.jpg"/>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Catatan Juang</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">Buku berjudul Catatan Juang merupakan spin-off dari novel best seller yang berjudul Konspirasi Alam Semesta.</p>
+                        <a href="https://archive.org/embed/fiersa-besari" target="_blank" rel="noopener noreferrer" class="w-full mt-auto text-center block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300">
+                            Baca Sekarang
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Kartu Buku 3 -->
+                <div class="card-item bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 ease-in-out hover:shadow-xl flex flex-col">
+                    <img alt="Desiran Angin Laut" class="w-full h-64 object-contain bg-gray-100" src="https://ebooks.gramedia.com/ebook-covers/50349/image_highres/ID_DAL2020MTH01AL.jpg"/>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Desiran Angin Laut</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">Rencana lamaran yang telah disusun Irzaldi Kamandaka buyar setelah melihat kekasihnya berselingkuh.</p>
+                        <a href="https://drive.google.com/file/d/1lMO81TCgXRMQvtzJXMxNLf1ukWl_gWOp/view" target="_blank" rel="noopener noreferrer" class="w-full mt-auto text-center block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300">
+                            Baca Sekarang
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Kartu Buku 4 -->
+                <div class="card-item bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 ease-in-out hover:shadow-xl flex flex-col">
+                    <img alt="Malioboro at Midnight" class="w-full h-64 object-contain bg-gray-100" src="https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/picture_meta/2023/4/1/9n7hoatkffndxdtbppb2fm.jpg"/>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Malioboro at Midnight</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">Bagiku, menulis adalah cara kita memandang dunia dari sisi yang tak terduga.</p>
+                        <a href="https://drive.google.com/file/d/1wE3VGLymSOUkKz8WWKtCbQrwKHbqvL3h/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full mt-auto text-center block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300">
+                            Baca Sekarang
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Kartu Buku 5 -->
+                <div class="card-item bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 ease-in-out hover:shadow-xl flex flex-col">
+                    <img alt="Bintang" class="w-full h-64 object-contain bg-gray-100" src="https://image.gramedia.net/rs:fit:0:0/plain/https://cdn.gramedia.com/uploads/picture_meta/2023/4/10/ccmq4kges6gstnsrrtxabw.jpg"/>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Bintang</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">Bintang adalah buku keempat dari serial Bumi yang ditulis oleh Tere Liye. Menceritakan tentang Raib, Seli, dan Ali.</p>
+                        <a href="https://archive.org/embed/TereLiyeBintang" target="_blank" rel="noopener noreferrer" class="w-full mt-auto text-center block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300">
+                            Baca Sekarang
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Kartu Buku 6 -->
+                <div class="card-item bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 ease-in-out hover:shadow-xl flex flex-col">
+                    <img alt="Hello Cello" class="w-full h-64 object-contain bg-gray-100" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1654768008i/61254911.jpg"/>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Hello Cello</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">Jatuh cinta lagi? Hmm, sepertinya itu tak ada lagi dalam kamus Helga. Kegagalannya dalam cinta membuatnya merasa cukup.</p>
+                        <a href="https://drive.google.com/file/d/1DWZJYpM6spXHZmp9Hvb7S5SxU4_4kH3U/view" target="_blank" rel="noopener noreferrer" class="w-full mt-auto text-center block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300">
+                            Baca Sekarang
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Kartu Buku 7 -->
+                <div class="card-item bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 ease-in-out hover:shadow-xl flex flex-col">
+                    <img alt="Hilmy Milan" class="w-full h-64 object-contain bg-gray-100" src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1637050582i/59636063.jpg"/>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Hilmy Milan</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-grow">Novel Hilmy Milan merupakan karya tulis Nadia Ristivani, sebuah alternative universe dari tokoh grup boyband NCT.</p>
+                        <a href="https://drive.google.com/file/d/1Dap9LZv93mYozAShs-r5QqmZtjtQU9sK/view" target="_blank" rel="noopener noreferrer" class="w-full mt-auto text-center block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300">
+                            Baca Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Pemilihan Genre -->
+    <div id="genreModal" class="fixed inset-0 bg-black bg-opacity-60 z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-sm mx-auto text-center relative animate-modal-pop">
+            <button id="closeModal" class="absolute top-2 right-4 text-gray-500 hover:text-gray-800 text-3xl font-bold">&times;</button>
+            <h3 class="text-2xl font-bold text-green-800 mb-6">Pilih Genre Favoritmu</h3>
+            <div class="flex flex-col space-y-4">
+                <a href="fantasi.html" class="block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 transform hover:scale-105">Fantasi</a>
+                <a href="fiksi.html" class="block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 transform hover:scale-105">Fiksi</a>
+                <a href="misteri.html" class="block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 transform hover:scale-105">Misteri</a>
+                <a href="nonfiksi.html" class="block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 transform hover:scale-105">Non-fiksi</a>
+                <a href="sejarah.html" class="block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 transform hover:scale-105">Sejarah</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Ambil elemen yang dibutuhkan
+        const genreButton = document.getElementById('genreButton');
+        const genreModal = document.getElementById('genreModal');
+        const closeModal = document.getElementById('closeModal');
+
+        // Tampilkan modal ketika tombol genre di klik
+        genreButton.addEventListener('click', () => {
+            genreModal.classList.remove('hidden');
+            genreModal.classList.add('flex');
+        });
+
+        // Sembunyikan modal ketika tombol close di klik
+        closeModal.addEventListener('click', () => {
+            genreModal.classList.add('hidden');
+            genreModal.classList.remove('flex');
+        });
+
+        // Sembunyikan modal jika pengguna mengklik di luar area modal
+        genreModal.addEventListener('click', (event) => {
+            if (event.target === genreModal) {
+                genreModal.classList.add('hidden');
+                genreModal.classList.remove('flex');
+            }
+        });
+    </script>
+</body>
+</html>
