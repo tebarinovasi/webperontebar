@@ -62,7 +62,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
 
                 <div class="card-item bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 ease-in-out hover:shadow-xl">
-                    <img alt="Resep Makanan Keluarga Sehat" class="w-full h-64 object-contain bg-gray-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMGIqC9xUBaWzgXEoGUp51krOlSoXzJ7qd3GkJCfsyZg&s=10"/>
+                    <img alt="Resep Makanan Keluarga Sehat" class="w-full h-64 object-contain bg-gray-100" src="https://drive.google.com/uc?export=view&id=1p1HW_YDYlU9KDG0P93dpltcQONqZF4yq"/>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-gray-900 mb-2">Resep Makanan Keluarga Sehat</h3>
                         <p class="text-gray-600 text-sm mb-6 h-24 overflow-hidden">Panduan lengkap menyajikan hidangan lezat dan bergizi seimbang untuk menjaga imunitas serta kesehatan seluruh anggota keluarga tercinta.</p>
@@ -136,7 +136,16 @@
                 genreModal.classList.remove('flex');
             }
         });
+        
+        // Tambahan: Menutup modal dengan tombol Escape pada keyboard
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && !genreModal.classList.contains('hidden')) {
+                genreModal.classList.add('hidden');
+                genreModal.classList.remove('flex');
+            }
+        });
     </script>
 
 </body>
 </html>
+
