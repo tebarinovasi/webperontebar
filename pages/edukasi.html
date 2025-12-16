@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PERONTEBAR - Edukasi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0fdf4;
+        }
+        .card-item {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.5s forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .card-item:nth-child(1) { animation-delay: 0.1s; }
+        .card-item:nth-child(2) { animation-delay: 0.2s; }
+        .card-item:nth-child(3) { animation-delay: 0.3s; }
+
+        /* Animasi untuk modal popup */
+        @keyframes modal-pop {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .animate-modal-pop {
+            animation: modal-pop 0.3s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <main class="container mx-auto px-6 py-12 md:py-16">
+        <section>
+            <div class="text-center mb-8">
+                <h1 class="text-4xl md:text-5xl font-bold text-green-800">Pojok Edukasi</h1>
+                <p class="text-lg text-green-600 mt-2">Memperluas wawasan dan pengetahuan melalui koleksi buku edukatif terbaik.</p>
+            </div>
+
+            <div class="text-center mb-12">
+                <button id="genreButton" class="bg-green-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition-colors duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                    Pilih Genre Lain
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+
+                <div class="card-item bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 ease-in-out hover:shadow-xl">
+                    <img alt="Resep Makanan Keluarga Sehat" class="w-full h-64 object-contain bg-gray-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMGIqC9xUBaWzgXEoGUp51krOlSoXzJ7qd3GkJCfsyZg&s=10"/>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Resep Makanan Keluarga Sehat</h3>
+                        <p class="text-gray-600 text-sm mb-6 h-24 overflow-hidden">Panduan lengkap menyajikan hidangan lezat dan bergizi seimbang untuk menjaga imunitas serta kesehatan seluruh anggota keluarga tercinta.</p>
+                        <a href="#" class="w-full text-center block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300">
+                            Baca Sekarang
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card-item bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 ease-in-out hover:shadow-xl">
+                    <img alt="Sapiens: Riwayat Singkat Umat Manusia" class="w-full h-64 object-contain bg-gray-100" src="https://cdn.gramedia.com/uploads/items/9786024248472_Sapiens.jpg"/>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Sapiens: Riwayat Singkat Umat Manusia</h3>
+                        <p class="text-gray-600 text-sm mb-6 h-24 overflow-hidden">Menjelajahi cara spesies manusia mendominasi planet ini, dari zaman batu hingga era revolusi teknologi modern.</p>
+                        <a href="#" class="w-full text-center block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300">
+                            Baca Sekarang
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card-item bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 ease-in-out hover:shadow-xl">
+                    <img alt="Atomic Habits" class="w-full h-64 object-contain bg-gray-100" src="https://cdn.gramedia.com/uploads/items/9786020633177_Atomic_Habits.jpg"/>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Atomic Habits</h3>
+                        <p class="text-gray-600 text-sm mb-6 h-24 overflow-hidden">Perubahan kecil yang memberikan hasil luar biasa. Cara mudah dan terbukti untuk membentuk kebiasaan baik.</p>
+                        <a href="#" class="w-full text-center block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors duration-300">
+                            Baca Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="genreModal" class="fixed inset-0 bg-black bg-opacity-60 z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 w-full max-w-sm mx-auto text-center relative animate-modal-pop">
+            <button id="closeModal" class="absolute top-2 right-4 text-gray-500 hover:text-gray-800 text-3xl font-bold">&times;</button>
+            <h3 class="text-2xl font-bold text-green-800 mb-6">Pilih Genre Favoritmu</h3>
+            <div class="flex flex-col space-y-4">
+                <a href="fantasi.html" class="block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 transform hover:scale-105">Fantasi</a>
+                <a href="fiksi.html" class="block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 transform hover:scale-105">Fiksi</a>
+                <a href="misteri.html" class="block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 transform hover:scale-105">Misteri</a>
+                <a href="nonfiksi.html" class="block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 transform hover:scale-105">Non-fiksi</a>
+                <a href="edukasi.html" class="block bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 transform hover:scale-105">Edukasi</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Ambil elemen yang dibutuhkan
+        const genreButton = document.getElementById('genreButton');
+        const genreModal = document.getElementById('genreModal');
+        const closeModal = document.getElementById('closeModal');
+
+        // Tampilkan modal ketika tombol genre di klik
+        genreButton.addEventListener('click', () => {
+            genreModal.classList.remove('hidden');
+            genreModal.classList.add('flex');
+        });
+
+        // Sembunyikan modal ketika tombol close di klik
+        closeModal.addEventListener('click', () => {
+            genreModal.classList.add('hidden');
+            genreModal.classList.remove('flex');
+        });
+
+        // Sembunyikan modal jika pengguna mengklik di luar area modal
+        genreModal.addEventListener('click', (event) => {
+            if (event.target === genreModal) {
+                genreModal.classList.add('hidden');
+                genreModal.classList.remove('flex');
+            }
+        });
+    </script>
+
+</body>
+</html>
