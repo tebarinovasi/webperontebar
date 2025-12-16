@@ -28,16 +28,9 @@
         .card-item:nth-child(2) { animation-delay: 0.2s; }
         .card-item:nth-child(3) { animation-delay: 0.3s; }
 
-        /* Animasi untuk modal popup */
         @keyframes modal-pop {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
         .animate-modal-pop {
             animation: modal-pop 0.3s ease-out forwards;
@@ -62,7 +55,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
 
                 <div class="card-item bg-white rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300 ease-in-out hover:shadow-xl">
-                    <img alt="Resep Makanan Keluarga Sehat" class="w-full h-64 object-contain bg-gray-100" src="https://drive.google.com/uc?export=view&id=1p1HW_YDYlU9KDG0P93dpltcQONqZF4yq"/>
+                    <img alt="Resep Makanan Keluarga Sehat" class="w-full h-64 object-contain bg-gray-100" src="https://drive.google.com/thumbnail?id=1p1HW_YDYlU9KDG0P93dpltcQONqZF4yq&sz=w1000"/>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-gray-900 mb-2">Resep Makanan Keluarga Sehat</h3>
                         <p class="text-gray-600 text-sm mb-6 h-24 overflow-hidden">Panduan lengkap menyajikan hidangan lezat dan bergizi seimbang untuk menjaga imunitas serta kesehatan seluruh anggota keluarga tercinta.</p>
@@ -112,32 +105,27 @@
     </div>
 
     <script>
-        // Ambil elemen yang dibutuhkan
         const genreButton = document.getElementById('genreButton');
         const genreModal = document.getElementById('genreModal');
         const closeModal = document.getElementById('closeModal');
 
-        // Tampilkan modal ketika tombol genre di klik
         genreButton.addEventListener('click', () => {
             genreModal.classList.remove('hidden');
             genreModal.classList.add('flex');
         });
 
-        // Sembunyikan modal ketika tombol close di klik
         closeModal.addEventListener('click', () => {
             genreModal.classList.add('hidden');
             genreModal.classList.remove('flex');
         });
 
-        // Sembunyikan modal jika pengguna mengklik di luar area modal
         genreModal.addEventListener('click', (event) => {
             if (event.target === genreModal) {
                 genreModal.classList.add('hidden');
                 genreModal.classList.remove('flex');
             }
         });
-        
-        // Tambahan: Menutup modal dengan tombol Escape pada keyboard
+
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape' && !genreModal.classList.contains('hidden')) {
                 genreModal.classList.add('hidden');
@@ -145,7 +133,6 @@
             }
         });
     </script>
-
 </body>
 </html>
 
